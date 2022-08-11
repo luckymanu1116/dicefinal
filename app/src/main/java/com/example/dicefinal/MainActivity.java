@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         String val = sharedpreferences.getString(diceValue,"");
         String pastVal = sharedpreferences.getString(pastValue,"");
-        String arrayStr = sharedpreferences.getString(sidesArrayStr,"2@4@6@8@10");
+        String arrayStr = sharedpreferences.getString(sidesArrayStr,"4@6@8@10@12@20");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -88,11 +88,7 @@ public class MainActivity extends AppCompatActivity {
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
-
+                // generating random number
                 int _random = (int) ((Math.random() * Integer.parseInt(spinner.getSelectedItem().toString()) + 1));
                 if (noRoll >= 5) {
                     noRoll = 0;
@@ -188,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
+
+    //saving entered values in SharedPreferences
     protected void onPause(){
         super.onPause();
         TextView rollTW = findViewById(R.id.rollTW);
